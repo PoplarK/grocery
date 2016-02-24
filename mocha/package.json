@@ -1,0 +1,8 @@
+{
+    "name": "mocha",
+    "description": "use mocha 2.4.5",
+    "version": "0.0.1",
+    "dependencies": {
+        "chai": "~3.5.0"
+    }
+}
