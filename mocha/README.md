@@ -117,6 +117,6 @@ describe('Array', function() {
 
 > expect(arithmetic.divide(4, 2)).to.equal(2)等同于expect(arithmetic.divide(4, 2)).to.be.equal(2)，写时可以用最贴近于人类语言的方式。
 > 
-> 如果需要对抛异常的函数进行expect时，那么要将throw Error的函数包在一个匿名函数里，例如，expect(function(){arithmetic.divide(p, 1)}).to.throw(Error, /wrong type/)里把arithmetic.divide(p, 1)。
+> 如果需要对抛异常的函数进行expect时，那么要将throw Error的函数包在一个匿名函数里，例如，expect(function(){arithmetic.divide(p, 1)}).to.throw(Error, /wrong type/)里把arithmetic.divide(p, 1)包在了一个匿名函数里。
 > 
 > [1,2,3].indexOf(5).should.equal(-1)和expect([1,2,3].indexOf(0)).to.equal(-1)是相同的，只不过是不同风格。
