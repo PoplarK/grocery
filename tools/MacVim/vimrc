@@ -1,0 +1,60 @@
+"无需兼容VI
+set nocompatible
+
+"基础设置
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
+set number
+set nowrap
+set autoread
+"set lines=35 columns=99
+set autochdir
+set fileencoding=utf-8
+set ff=dos
+set backspace=2     "bs=2
+set backspace=indent,eol,start
+if &diff
+    colorscheme molokai
+else
+    " colorscheme molokai
+    colorscheme tomorrow-Night-Eighties
+endif
+
+set t_Co=256
+let mapleader=","
+
+"GUI
+"set guioptions-=m  "menu
+set guioptions-=T   "toolbar
+set guifont=Monaco:h12
+
+"缩进
+"http://oss.org.cn/man/newsoft/vi/doc/indent.html
+set smartindent
+set shiftwidth=4    "shift指<<和>>操作
+set tabstop=4
+set expandtab
+
+set smarttab
+
+"搜索
+set incsearch       "动态显示搜索情况
+set hlsearch        "高亮显示匹配内容
+nnoremap ; :set invhlsearch<CR>
+
+"备份
+set nobackup
+set nowb
+set noswapfile
+
+"复制粘贴
+set clipboard+=unnamed
+"vmap <C-c> "+y
+"vmap <C-x> "+x
+"nmap <C-v> "+gP
+"vmap <C-v> "+gP
+"nmap <C-a> ggVG
+
+execute pathogen#infect()
