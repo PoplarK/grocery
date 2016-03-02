@@ -1,0 +1,25 @@
+{
+  "name": "angular",
+  "homepage": "https://github.com/PoplarK/grocery",
+  "authors": [
+    "poplark <songkang666@126.com>"
+  ],
+  "description": "angular validate",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "validate"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
