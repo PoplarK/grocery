@@ -1,0 +1,28 @@
+{
+  "name": "angular directive",
+  "homepage": "https://github.com/PoplarK/grocery",
+  "authors": [
+    "poplark <songkang666@126.com>"
+  ],
+  "description": "angular directive",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "directive"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-material": "^1.0.6",
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

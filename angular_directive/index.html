@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Angular Directive</title>
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+        <style>
+            .main-nav {
+                padding: 0 16px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+            }
+            md-list-item > button {
+                width: 100%;
+                text-align: left !important;
+            }
+            .directive {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+        </style>
+
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+        <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+        <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+    </head>
+    <body ng-app="DAPP" layout="column" ng-init="isSideNavOpen=false">
+        <md-toolbar layout="row" class="main-nav">
+            <nav>
+                <h3 ng-click="isSideNavOpen=!isSideNavOpen">Angular Directive</h3>
+            </nav>
+        </md-toolbar>
+        <div flex layout="row">
+            <md-sidenav class="md-sidenav-left" md-is-open="isSideNavOpen">
+                <md-list>
+                    <md-list-item>
+                        <a href="#/">Home</a>
+                    </md-list-item>
+                    <md-list-item>
+                        <a href="#/restrict">Restrict</a>
+                    </md-list-item>
+                    <md-list-item>
+                        <a href="index.html">Home2</a>
+                    </md-list-item>
+                    <md-list-item>
+                        <a href="index.html">Home3</a>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+
+            <md-content flex layout="row" layout-padding>
+                <div flex>
+                    <restrict-e>
+                        <div>
+                            outer div
+                            <div>inner div</div>
+                        </div>
+                    </restrict-e>
+                    <div restrict-a>
+                        outer div
+                        <div> inner div </div>
+                    </div>
+                    <div class="restrict-c">
+                        outer div
+                        <div> inner div </div>
+                    </div>
+                    <!--directive:restrict-m-->
+                </div>
+                <div flex>
+                    <replace-e>
+                        <div>
+                            outer div
+                            <div>inner div</div>
+                        </div>
+                    </replace-e>
+                    <div replace-a>
+                        outer div
+                        <div> inner div </div>
+                    </div>
+                    <div class="replace-c">
+                        outer div
+                        <div> inner div </div>
+                    </div>
+                    <!--directive:replace-m-->
+                </div>
+                <div flex>
+                    <div class="directive">
+                        <div>bind with @ ( 单向绑定 )</div>
+                        outer input <input type="text" ng-init="textA='baidu'" ng-model="textA"/><br/>
+                        <div bind-strategy-at url="http://www.baidu.com" link-text="{{textA}}">
+                            outer div
+                            <div> inner div </div>
+                        </div>
+                    </div>
+                    <div class="directive">
+                        <div>bind with = ( 双向绑定 )</div>
+                        outer input <input type="text" ng-init="textB='baidu'" ng-model="textB"/><br/>
+                        <div bind-strategy-equal url="http://www.baidu.com" link-text="textB">
+                            outer div
+                            <div> inner div </div>
+                        </div>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
