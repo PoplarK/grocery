@@ -1,24 +1,27 @@
 <!DOCTYPE HTML>
-<html ng-app="VAPP">
+<html>
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Angular Validate</title>
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
         <style>
-            .main {
+            .main-nav {
+                padding: 0 16px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+            }
+            .main-nav nav {
+                cursor: pointer;
+            }
+            md-list-item > button {
+                width: 100%;
+                text-align: left !important;
+            }
+
+            md-content {
                 width: 960px;
                 margin: 0 auto;
             }
-            .clearfix:after {
-                content: "";
-                display: block;
-                clear: both;
-            }
-            .edit-area,
-            .display-area {
-                width: 480px;
-                float: left;
-            }
-
             input {
                 border: 2px solid #ccc;
             }
@@ -32,82 +35,162 @@
                 border: 2px solid green;
             }
         </style>
-        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+        <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+        <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
     </head>
-    <body ng-controller="indexController">
-        <div class="main clearfix">
-            <form name="signup_form" novalidateng-submit="signupForm()">
-                <fieldset>
-                    <legend>Signup</legend>
-                    <div class="large-12 columns">
-                        <label>Your name</label>
-                        <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength="3" ng-maxlength="20" required />
-                        <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
-                            <small class="error" ng-show="signup_form.name.$error.required">
-                                Your name is required.
-                            </small>
-                            <small class="error" ng-show="signup_form.name.$error.minlength">
-                                Your name is required to be at least 3 characters.
-                            </small>
-                            <small class="error" ng-show="signup_form.name.$error.maxlength">
-                                Your name cannot be longer than 20 characters.
-                            </small>
+    <body ng-app="VAPP" layout="column" ng-init="isSideNavOpen=false;isHomePage=true;" ng-controller="indexController" >
+        <md-toolbar layout="row" class="main-nav">
+            <nav>
+                <h3 ng-click="isSideNavOpen=!isSideNavOpen">Angular Validate (click me)</h3>
+            </nav>
+        </md-toolbar>
+        <div flex layout="row">
+            <md-sidenav class="md-sidenav-left" md-is-open="isSideNavOpen">
+                <md-list>
+                    <md-list-item>
+                        <a href="javascript:void(0);" ng-click="changePage('home')">Home</a>
+                    </md-list-item>
+                    <md-list-item>
+                        <a href="javascript:void(0);" ng-click="changePage('ngForm')">Ng-form</a>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+            <md-content layout="row" layout-padding>
+                <form ng-if="isHomePage" name="signup_form" novalidateng-submit="signupForm()">
+                    <fieldset>
+                        <legend>Signup</legend>
+                        <div class="large-12 columns">
+                            <label>Your name</label>
+                            <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength="3" ng-maxlength="20" required />
+                            <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+                                <small class="error" ng-show="signup_form.name.$error.required">
+                                    Your name is required.
+                                </small>
+                                <small class="error" ng-show="signup_form.name.$error.minlength">
+                                    Your name is required to be at least 3 characters.
+                                </small>
+                                <small class="error" ng-show="signup_form.name.$error.maxlength">
+                                    Your name cannot be longer than 20 characters.
+                                </small>
+                            </div>
                         </div>
-                    </div>
-                    <div class="large-12 columns">
-                        <label>Your email</label>
-                        <input type="email" placeholder="Email" name="email" ng-model="signup.email" ng-minlength="3" ng-maxlength="20" required />
-                        <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
-                            <small class="error" ng-show="signup_form.email.$error.required">
-                                Your email is required.
-                            </small>
-                            <small class="error" ng-show="signup_form.email.$error.minlength">
-                                Your email is required to be at least 3 characters.
-                            </small>
-                            <small class="error" ng-show="signup_form.email.$error.email">
-                                That is not a valid email, please input a valid email.
-                            </small>
-                            <small class="error" ng-show="signup_form.email.$error.maxlength">
-                                Your email cannot be longer than 20 characters.
-                            </small>
+                        <div class="large-12 columns">
+                            <label>Your email</label>
+                            <input type="email" placeholder="Email" name="email" ng-model="signup.email" ng-minlength="3" ng-maxlength="20" required />
+                            <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+                                <small class="error" ng-show="signup_form.email.$error.required">
+                                    Your email is required.
+                                </small>
+                                <small class="error" ng-show="signup_form.email.$error.minlength">
+                                    Your email is required to be at least 3 characters.
+                                </small>
+                                <small class="error" ng-show="signup_form.email.$error.email">
+                                    That is not a valid email, please input a valid email.
+                                </small>
+                                <small class="error" ng-show="signup_form.email.$error.maxlength">
+                                    Your email cannot be longer than 20 characters.
+                                </small>
+                            </div>
                         </div>
-                    </div>
-                    <div class="large-12 columns">
-                        <label>Username</label>
-                        <input type="text" placeholder="Desired username" name="username" ng-model="signup.username" ng-minlength="3" ng-maxlength="20" ensure-unique="username" required />
-                        <div class="error" ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
-                            <small class="error" ng-show="signup_form.username.$error.required">
-                                Please input a username.
-                            </small>
-                            <small class="error" ng-show="signup_form.username.$error.minlength">
-                                Your username is required to be at least 3 characters.
-                            </small>
-                            <small class="error" ng-show="signup_form.username.$error.maxlength">
-                                Your username cannot be longer than 20 characters.
-                            </small>
-                            <small class="error" ng-show="signup_form.username.$error.unique">
-                                That username is taken, please try another.
-                            </small>
+                        <div class="large-12 columns">
+                            <label>Username</label>
+                            <input type="text" placeholder="Desired username" name="username" ng-model="signup.username" ng-minlength="3" ng-maxlength="20" ensure-unique="username" required />
+                            <div class="error" ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
+                                <small class="error" ng-show="signup_form.username.$error.required">
+                                    Please input a username.
+                                </small>
+                                <small class="error" ng-show="signup_form.username.$error.minlength">
+                                    Your username is required to be at least 3 characters.
+                                </small>
+                                <small class="error" ng-show="signup_form.username.$error.maxlength">
+                                    Your username cannot be longer than 20 characters.
+                                </small>
+                                <small class="error" ng-show="signup_form.username.$error.unique">
+                                    That username is taken, please try another.
+                                </small>
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div class="large-12 columns">
-                        <label>Your name</label>
-                        <input type="text" placeholder="Age" name="age" ng-model="signup.age" age-directive required />
-                        <div class="error" ng-show="signup_form.age.$dirty && signup_form.age.$invalid">
-                            <small class="error" ng-show="signup_form.age.$error.required">
-                                Your age is required.
-                            </small>
-                            <small class="error" ng-show="signup_form.age.$error.inAgeScope">
-                                Your age is required to be 1 to 100.
-                            </small>
+                        <div class="large-12 columns">
+                            <label>Your name</label>
+                            <input type="text" placeholder="Age" name="age" ng-model="signup.age" age-directive required />
+                            <div class="error" ng-show="signup_form.age.$dirty && signup_form.age.$invalid">
+                                <small class="error" ng-show="signup_form.age.$error.required">
+                                    Your age is required.
+                                </small>
+                                <small class="error" ng-show="signup_form.age.$error.inAgeScope">
+                                    Your age is required to be 1 to 100.
+                                </small>
+                            </div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="button radius" ng-disabled="signup_form.$invalid">Submit</button>
-                </fieldset>
-            </form>
+                        <md-button class="md-raised md-mini" type="submit" ng-disabled="signup_form.$invalid">submit</md-button>
+                    </fieldset>
+                </form>
+
+                <!-- ng-form -->
+                <form ng-if="isNgFormPage" name="company_form" ng-controller="ngFormController" ng-submit="create()" novalidate>
+                    <fieldset>
+                        <legend>ng-form</legend>
+                        <div id="company_name">
+                            <input type="text" name="company_name" ng-required="true" ng-model="company.name" placeholder="Company Name"/>
+                            <div ng-show="company_form.company_name.$dirty && company_form.company_name.$invalid">
+                                <span class="error" ng-show="company_form.company_name.$error.required">The field is required.</span>
+                            </div>
+                        </div>
+
+                        <div id="deparments_number">
+                            <input type="number" name="departments_number" ng-required="true" ng-model="company.DNum" placeholder="Departments Number" ng-change="company.setDepartments()"/>
+                            <div ng-show="company_form.departments_number.$dirty && company_form.departments_number.$invalid">
+                                <span class="error" ng-show="company_form.departments_number.$error.required">The field is required.</span>
+                            </div>
+                        </div>
+
+                        <div ng-if="company.departments" ng-repeat="department in company.departments" ng-form="departments_form">
+                            <br/>
+                            ==== department ====
+                            <div>
+                                <input type="text" name="department_name" ng-required="true" ng-model="department.name" placeholder="Department Name"/>
+                                <div ng-show="departments_form.department_name.$dirty && departments_form.department_name.$invalid">
+                                    <span class="error" ng-show="departments_form.department_name.$error.required">The field is required.</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <input type="number" name="users_number" ng-required="true" ng-model="department.UNum" placeholder="Users Number" ng-change="department.setUsers()"/>
+                                <div ng-show="departments_form.users_number.$dirty && departments_form.users_number.$invalid">
+                                    <span class="error" ng-show="departments_form.users_number.$error.required">The field is required.</span>
+                                </div>
+                            </div>
+                            ------ user ------
+
+                            <div ng-if="department.users" ng-repeat="user in department.users" ng-form="users_form">
+                                <div>
+                                    <input type="text" name="user_name" ng-required="true" ng-model="user.name" placeholder="User Name"/>
+                                    <div ng-show="users_form.user_name.$dirty && users_form.user_name.$invalid">
+                                        <span class="error" ng-show="users_form.user_name.$error.required">The field is required.</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <input type="email" name="user_email" ng-required="true" ng-model="user.email" placeholder="User Email"/>
+                                    <div ng-show="users_form.user_email.$dirty && users_form.user_email.$invalid">
+                                        <span class="error" ng-show="users_form.user_email.$error.required">The field is required.</span>
+                                        <span class="error" ng-show="users_form.user_email.$error.email">The field need an email.</span>
+                                    </div>
+                                </div>
+                                ------------------
+                            </div>
+                        </div>
+
+                        <md-button class="md-raised md-mini" type="submit" ng-disabled="company_form.$invalid">Submit All</md-button>
+                    </fieldset>
+                </form>
+            </md-content>
         </div>
 
         <script type="text/javascript" src="source/app.js"></script>

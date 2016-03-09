@@ -1,6 +1,57 @@
-var app = angular.module("VAPP", []);
+var app = angular.module("VAPP", ["ngMaterial"]);
 
 app.controller("indexController", ["$scope", function($scope) {
+    $scope.changePage = function(param) {
+        switch(param) {
+            case "home":
+                $scope.isHomePage = true;
+                $scope.isNgFormPage = false;
+                break;
+            case "ngForm":
+                $scope.isHomePage = false;
+                $scope.isNgFormPage = true;
+                break;
+            default:
+                $scope.isHomePage = true;
+                $scope.isNgFormPage = false;
+        }
+        $scope.isSideNavOpen = false;
+    };
+}]);
+
+app.controller("ngFormController", ["$scope", function($scope) {
+    function User() {
+        this.name = "";
+        this.email = "";
+    }
+    function Department() {
+        this.name = "";
+        this.UNum = 0;
+    }
+    Department.prototype.setUsers = function() {
+        var p = parseInt(this.UNum);
+        this.users = [];
+        for(var i=0; i<p; i++) {
+            var x = new User();
+            this.users.push(x);
+        }
+    }
+    $scope.company = {
+        name:"",
+        DNum: 0,
+        setDepartments: function() {
+            var p = this.DNum;
+            if(p<=0) {delete this.departments;}
+            this.departments = [];
+            for(var i=0; i<p; i++) {
+                var x = new Department();
+                this.departments.push(x);
+            }
+        }
+    }
+    $scope.create = function() {
+        console.log($scope.company);
+    }
 }]);
 
 app.directive('ensureUnique', function($http) {
