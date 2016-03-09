@@ -1,5 +1,24 @@
 var app = angular.module("DAPP", ["ngMaterial"]);
 
+app.controller("indexController", ["$scope", function($scope) {
+    $scope.changePage = function(page) {
+        switch(page) {
+            case "self-defined":
+                $scope.page = "self-defined";
+                break;
+            case "ng-select":
+                $scope.page = "ng-select";
+                break;
+            case "ng-include":
+                $scope.page = "ng-include";
+                break;
+            default:
+                $scope.page = "self-defined";
+        }
+        $scope.isSideNavOpen = false;
+    }
+}]);
+
 // restrict
 app.directive("restrictE", function() {
     return {
@@ -101,3 +120,16 @@ app.directive("bindStrategyAt", function() {
     };
 });
 */
+
+// ng-select
+app.controller('selectController',function($scope) {
+    $scope.items = ["AAA", "BBB", "CCC", "DDD", "EEE"];
+
+    $scope.users = [
+        {id: 111, name: "AAA"},
+        {id: 222, name: "BBB"},
+        {id: 333, name: "CCC"},
+        {id: 444, name: "DDD"},
+        {id: 555, name: "EEE"},
+    ];
+});

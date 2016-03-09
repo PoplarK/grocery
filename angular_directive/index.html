@@ -14,6 +14,9 @@
                 width: 100%;
                 text-align: left !important;
             }
+            .main-nav nav {
+                cursor: pointer;
+            }
             .directive {
                 border: 1px solid #ccc;
                 padding: 5px;
@@ -25,31 +28,28 @@
         <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
         <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
     </head>
-    <body ng-app="DAPP" layout="column" ng-init="isSideNavOpen=false">
+    <body ng-app="DAPP" layout="column" ng-init="isSideNavOpen=false;page='self-defined';" ng-controller="indexController">
         <md-toolbar layout="row" class="main-nav">
             <nav>
-                <h3 ng-click="isSideNavOpen=!isSideNavOpen">Angular Directive</h3>
+                <h3 ng-click="isSideNavOpen=!isSideNavOpen">Angular Directive (Click Me)</h3>
             </nav>
         </md-toolbar>
         <div flex layout="row">
             <md-sidenav class="md-sidenav-left" md-is-open="isSideNavOpen">
                 <md-list>
                     <md-list-item>
-                        <a href="#/">Home</a>
+                        <a href="javascript:void(0);" ng-click="changePage('self-defined')">slef-defined</a>
                     </md-list-item>
                     <md-list-item>
-                        <a href="#/restrict">Restrict</a>
+                        <a href="javascript:void(0);" ng-click="changePage('ng-select')">ng-select</a>
                     </md-list-item>
                     <md-list-item>
-                        <a href="index.html">Home2</a>
-                    </md-list-item>
-                    <md-list-item>
-                        <a href="index.html">Home3</a>
+                        <a href="javascript:void(0);" ng-click="changePage('ng-include')">ng-include</a>
                     </md-list-item>
                 </md-list>
             </md-sidenav>
 
-            <md-content flex layout="row" layout-padding>
+            <md-content id="self-defined" ng-if="'self-defined'===page" flex layout="row" layout-padding>
                 <div flex>
                     <restrict-e>
                         <div>
@@ -100,6 +100,42 @@
                             outer div
                             <div> inner div </div>
                         </div>
+                    </div>
+                </div>
+            </md-content>
+
+            <md-content id="ng-select" ng-if="'ng-select'===page" flex layout="row" layout-padding ng-controller="selectController">
+                <div flex>
+                    <select ng-model="selectedItem" ng-options="item for item in items">
+                        <option value="">Choose Item</option>
+                    </select>
+                    <div> Selected value: {{selectedItem}} </div>
+                </div>
+                <div flex>
+                    <select ng-model="selectedUser" ng-options="user.name for user in users">
+                        <option value="">Choose User</option>
+                    </select>
+                    <div> Selected value: {{ selectedUser }} </div>
+                </div>
+                <div flex>
+                    <select ng-model="selectedUserName" ng-options="user.name as user.name for user in users">
+                        <option value="">Choose User's Name</option>
+                    </select>
+                    <div> Selected value: {{ selectedUserName }} </div>
+                </div>
+                <div flex>
+                    <select ng-model="selectedUserId" ng-options="user.id as user.name for user in users">
+                        <option value="">Choose User's Id</option>
+                    </select>
+                    <div> Selected value: {{ selectedUserId }} </div>
+                </div>
+            </md-content>
+
+            <md-content id="ng-include" ng-if="'ng-include'===page" flex layout="row" layout-padding>
+                <div ng-include="'include.html'">
+                    outer div
+                    <div>
+                        inner div
                     </div>
                 </div>
             </md-content>
