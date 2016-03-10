@@ -19,6 +19,12 @@ app.controller("indexController", ["$scope", function($scope) {
     };
 }]);
 
+app.controller("normalFormController", ["$scope", function($scope) {
+    $scope.signupForm = function() {
+        console.log($scope.signup_form);
+    };
+}]);
+
 app.controller("ngFormController", ["$scope", function($scope) {
     function User() {
         this.name = "";
