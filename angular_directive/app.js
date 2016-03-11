@@ -122,7 +122,7 @@ app.directive("bindStrategyAt", function() {
 */
 
 // ng-select
-app.controller('selectController',function($scope) {
+app.controller('selectController', function($scope) {
     $scope.items = ["AAA", "BBB", "CCC", "DDD", "EEE"];
 
     $scope.users = [
@@ -132,4 +132,10 @@ app.controller('selectController',function($scope) {
         {id: 444, name: "DDD"},
         {id: 555, name: "EEE"},
     ];
+});
+
+app.controller("includeController", function($scope) {
+    $scope.$watch("selected", function(newVal, oldVal) {
+        console.log(newVal, oldVal);
+    });
 });
