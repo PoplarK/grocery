@@ -12,6 +12,12 @@
 > ```ln -s /Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sb```
 > 所以，命令行下，打开某文件或目录，就可以这样：`sb xxx`，哈哈哈!
 
+* [Atom](https://atom.io/) 它是 GitHub 的程序员们使用目前最先进流行的技术重新打造了一款称为“属于21世纪”的代码编辑器， 它开源免费跨平台，并且整合 GIT 并提供类似 SublimeText 的包管理功能，支持插件扩展，可配置性非常高，也可以调成vim模式（如果喜欢vim的话）。（这里是官网链接，有下载地址）
+
+> 我在命令行下使用了快捷的打开方式:
+> ```ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/am```
+> 所以，命令行下，打开某文件或目录，就可以这样：`am xxx`（没找到像`sb`这么拉轰的名字，`at`这个命令又已经存在了。注意：在添加快捷的打开方式时，要先试下命令是否已经存在）
+
 * [MacDown](http://macdown.uranusjr.com/) 很简洁易用的Markdown编辑器，编辑时即可预览，正在用它编辑这个README.md文件。（点击链接有下载地址）
 
 > 我在命令行下使用了快捷的打开方式:
