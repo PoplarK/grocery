@@ -26,6 +26,6 @@
 
 * [ImageAlpha](https://pngmini.com/) ImageAlpha 是一个图片有损压缩工具，可以将24位的 png 图片转换为8位，大大缩减文件的大小的同时文件质量并没有太大的损失，是 PNG 有损压缩中压缩比最高的。
 
-* [ImageOptim](https://imageoptim.com/) ImageOptim 是一款非常简单的图片大小优化工具，只要拖动图片到软件界面就可以自动把图片的大小进行优化。还可以对文件的EXIF标签和颜色配置文件等，达到优化减小占用磁盘空间。
+* [ImageOptim](https://imageoptim.com/) ImageOptim 是一个图片无损压缩工具，可以移除图片文件中包含的一些注释、颜色 Profile 等多余信息，移除后图像质量不变，体积更小载入更快。其先分析图片，找到最优压缩参数，去除无关信息减小体积，实行无损压缩，支持 PNG/JPEG/GIF 动画。
 
 ###To be continue....
