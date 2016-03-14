@@ -24,8 +24,8 @@
 > ```ln -s /Applications/MacDown.app/Contents/SharedSupport/bin/macdown /usr/local/bin/md```
 > 你也可以用`made`，打开 markdown 文件时，就可以这样：`made xxx`，哈哈哈!
 
-* [ImageAlpha](https://pngmini.com/) ImageAlpha 是一个图片有损压缩工具，可以将24位的 png 图片转换为8位，大大缩减文件的大小的同时文件质量并没有太大的损失，是 PNG 有损压缩中压缩比最高的。
+* [ImageAlpha](https://pngmini.com/) ImageAlpha 是一个图片有损压缩工具，可以将24位的 png 图片转换为8位，大大缩减文件的大小的同时文件质量并没有太大的损失，是 **PNG** 有损压缩中压缩比最高的。
 
-* [ImageOptim](https://imageoptim.com/) ImageOptim 是一个图片无损压缩工具，可以移除图片文件中包含的一些注释、颜色 Profile 等多余信息，移除后图像质量不变，体积更小载入更快。其先分析图片，找到最优压缩参数，去除无关信息减小体积，实行无损压缩，支持 PNG/JPEG/GIF 动画。
+* [ImageOptim](https://imageoptim.com/) ImageOptim 是一个图片无损压缩工具，可以处理 **JPEG** / **PNG** / **GIF** 图片文件。无损压缩时，其先分析图片，找到最优压缩参数，并移除图片文件中包含的一些注释、颜色 Profile 等多余信息，移除后图像质量不变，体积更小载入更快。虽然它是一个无损压缩工具，但设置项中却还能勾选为有损压缩，并分别设置  JPEG 、 PNG 、 GIF 的压缩率。我本人用时，感觉 JPEG 的有损压缩效果非常突出。 
 
 ###To be continue....
