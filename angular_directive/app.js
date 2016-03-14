@@ -81,7 +81,41 @@ app.directive("replaceM", function() {
     };
 });
 
-// bind strategy
+// boolean scope
+app.directive("scopeFalse", function() {
+    return {
+        restrict: "A",
+        scope: false, // 默认就是false，指令中的作用域对象与父作用域对象为同一个
+        template: "<div><input type='text' ng-model='testScopeFalse'/></div>",
+        link: function(scope, elem, attrs) {
+            console.log("scope false: ", scope);
+        }
+    }
+});
+
+app.directive("scopeTrue", function() {
+    return {
+        restrict: "A",
+        scope: true, // 指令从父作用域继承并创建一个新的作用域对象，与controller有类似。
+        template: "<div><input type='text' ng-model='testScopeTrue'/></div>",
+        link: function(scope, elem, attrs) {
+            console.log("scope true: ", scope);
+        }
+    }
+});
+
+// object scope
+app.directive("scopeObject", function() {
+    return {
+        restrict: "A",
+        scope: { }, // 指令直接创建一个新的作用域对象
+        template: "<div><input type='text' ng-model='testScopeObject'/></div>",
+        link: function(scope, elem, attrs) {
+            console.log("scope object: ", scope);
+        }
+    };
+});
+
 app.directive("bindStrategyAt", function() {
     return {
         restrict: "A",
