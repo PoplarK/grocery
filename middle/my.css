@@ -1,0 +1,26 @@
+.inline-container {
+    width: 300px;
+    height: 50px;
+}
+.block-container {
+    width: 300px;
+    height: 100px;
+}
+.inline-container, .block-container {
+    border: 1px solid black;
+}
+.sub {
+    border: 1px dotted grey;
+}
+.horizontal-inline {
+	text-align: center;
+}
+
+.horizontal-block-1 {
+    text-align: center;
+}
+
+.horizontal-block-2 {
+    width: 100px;
+    margin: 0 auto;
+}
