@@ -1,9 +1,13 @@
+body {
+    width: 402px;
+    margin: 0 auto;
+}
 .inline-container {
-    width: 300px;
+    width: 400px;
     height: 50px;
 }
 .block-container {
-    width: 300px;
+    width: 400px;
     height: 100px;
 }
 .inline-container, .block-container {
@@ -12,15 +16,61 @@
 .sub {
     border: 1px dotted grey;
 }
+
 .horizontal-inline {
 	text-align: center;
 }
 
-.horizontal-block-1 {
-    text-align: center;
+.inline-block {
+    display: inline-block;
 }
 
-.horizontal-block-2 {
+.horizontal-block {
     width: 100px;
     margin: 0 auto;
+}
+
+.vertical-single-1 {
+    height: 50px;
+    line-height: 50px;
+}
+
+.vertical-single-2 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vertical-single-3 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.vertical-single-3 > div {
+    height: 20px;
+    line-height: 20px;
+}
+
+.vertical-single-4-parent {
+    height: 100%;
+    position: relative;
+}
+
+.vertical-single-4 {
+    position: absolute;
+    height: 20px;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.vertical-single-5-parent {
+    height: 100%;
+    position: relative;
+}
+
+.vertical-single-5 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 20px;
 }
