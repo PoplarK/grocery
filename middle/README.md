@@ -104,3 +104,11 @@
 
 ### 四. 水平垂直居中
 
+
+### 参见
+
+[CSS垂直水平完全居中手册](https://mp.weixin.qq.com/s?__biz=MzAwNDcyNjI3OA==&mid=402280389&idx=1&sn=7d932e91a5cd2f10f1555155427bc679&scene=1&srcid=03161SbB5bviWOvKxDyhv9Gk&key=710a5d99946419d91494af75c845b0b7e92f69168c5190871cd48a2dc2ee5231fce6c85bf70e77f3744da39278ac322e&ascene=0&uin=MjY3MjUzMTE0MQ%3D%3D&devicetype=iMac+MacBookPro11%2C2+OSX+OSX+10.10.5+build(14F1509)&version=11020201&pass_ticket=a6bfdENE9KstErkVJ4XJl2sq4BHnvr96bc0s43SjxpyWePqXBNRNKt24yuggWoOC)
+
+[盘点8种CSS实现垂直居中水平居中的绝对定位居中技术](http://blog.csdn.net/freshlover/article/details/11579669)
+
+[CSS 元素垂直居中的 6种方法](http://blog.zhourunsheng.com/2012/03/css-%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84-6%E7%A7%8D%E6%96%B9%E6%B3%95/)
