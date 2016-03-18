@@ -9,36 +9,85 @@
     </head>
     <body>
         <div class="inline-container horizontal-inline">
-            <span class="sub">horizontal inline</span>
+            <span class="sub">子元素为内联元素的水平居中</span>
         </div>
         <div class="inline-container horizontal-inline">
-            <div class="inline-block sub">horizontal inline block</div>
+            <div class="inline-block sub">子元素为内联元素的水平居中</div>
         </div>
+        <br/>
         <div class="block-container">
-            <div class="horizontal-block sub">horizontal 固定宽度的 block</div>
+            <div class="horizontal-block sub">子元素为固定宽度的块级元素的水平居中</div>
         </div>
-        <div class="inline-container vertical-single-1">
-            <span class="sub">vertical single 1 inline</span>
+        <hr/>
+        <div class="inline-container vertical-line-height">
+            <span class="sub">父元素高度固定，子元素单行的垂直居中</span>
         </div>
-        <div class="inline-container vertical-single-1">
-            <div class="sub">vertical single 1 block</div>
+        <div class="inline-container vertical-line-height">
+            <div class="sub">父元素高度固定，子元素单行的垂直居中</div>
         </div>
-        <div class="inline-container vertical-single-2">
-            <div class="sub">vertical single 2 block</div>
+        <br/>
+        <div class="inline-container vertical-vertical-align">
+            <div class="sub">父元素高度固定，子元素单行或多行的垂直居中</div>
         </div>
+        <br/>
         <div class="inline-container">
-            <div class="vertical-single-3">
-                <div class="sub">vertical single 3 block</div>
+            <div class="vertical-padding-top-bottom">
+                <div class="sub">父元素和子元素高度都固定的垂直居中</div>
+            </div>
+        </div>
+        <br/>
+        <div class="block-container">
+            <div class="vertical-parent-variable">
+                <div class="vertical-absolute-1 sub">父元素高度不固定，子元素高度固定的垂直居中（1）</div>
             </div>
         </div>
         <div class="block-container">
-            <div class="vertical-single-4-parent">
-                <div class="vertical-single-4 sub">vertical single 4 block</div>
+            <div class="vertical-parent-variable">
+                <div class="vertical-absolute-2 sub">父元素高度不固定，子元素高度固定的垂直居中（2）</div>
             </div>
         </div>
+        <br/>
         <div class="block-container">
-            <div class="vertical-single-5-parent">
-                <div class="vertical-single-5 sub">vertical single 5 block</div>
+            <div class="vertical-parent-variable">
+                <div class="vertical-transform sub">
+                    <div>父元素，子元素高度都不固定的垂直居中</div>
+                    <div>父元素，子元素高度都不固定的垂直居中</div>
+                    <div>父元素，子元素高度都不固定的垂直居中</div>
+                    <div>父元素，子元素高度都不固定的垂直居中</div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="block-container">
+            <div class="horizontal-vertical-1 sub">
+                父元素，子元素宽高都固定的水平垂直居中（1）
+            </div>
+        </div>
+        <div class="block-container horizontal-vertical-2-parent">
+            <div class="horizontal-vertical-2-child sub">
+                父元素，子元素宽高都固定的水平垂直居中（2）
+            </div>
+        </div>
+        <br/>
+        <div class="block-container horizontal-vertical-3-parent">
+            <div class="horizontal-vertical-3-child sub">
+                父元素宽高固定，子元素宽高不固定的水平垂直居中
+            </div>
+        </div>
+        <br/>
+        <div class="block-container">
+            <div class="horizontal-vertical-4-parent">
+                <div class="horizontal-vertical-4-child sub">
+                    父元素宽高不固定，子元素宽高固定的水平垂直居中
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="block-container">
+            <div class="horizontal-vertical-5-parent">
+                <div class="horizontal-vertical-5-child sub">
+                    父元素子元素宽高都不固定的水平垂直居中
+                </div>
             </div>
         </div>
     </body>

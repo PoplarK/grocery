@@ -1,14 +1,14 @@
 body {
-    width: 402px;
+    width: 502px;
     margin: 0 auto;
 }
 .inline-container {
-    width: 400px;
+    width: 500px;
     height: 50px;
 }
 .block-container {
-    width: 400px;
-    height: 100px;
+    width: 500px;
+    height: 150px;
 }
 .inline-container, .block-container {
     border: 1px solid black;
@@ -30,47 +30,102 @@ body {
     margin: 0 auto;
 }
 
-.vertical-single-1 {
+.vertical-line-height {
     height: 50px;
     line-height: 50px;
 }
 
-.vertical-single-2 {
+.vertical-vertical-align {
     display: table-cell;
     vertical-align: middle;
 }
 
-.vertical-single-3 {
+.vertical-padding-top-bottom {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.vertical-single-3 > div {
+.vertical-padding-top-bottom > div {
     height: 20px;
     line-height: 20px;
 }
 
-.vertical-single-4-parent {
+.vertical-parent-variable {
     height: 100%;
     position: relative;
 }
 
-.vertical-single-4 {
+.vertical-absolute-1 {
     position: absolute;
     height: 20px;
     top: 50%;
     margin-top: -10px;
 }
 
-.vertical-single-5-parent {
-    height: 100%;
-    position: relative;
-}
-
-.vertical-single-5 {
+.vertical-absolute-2 {
     position: absolute;
     top: 0;
     bottom: 0;
     margin: auto 0;
     height: 20px;
+}
+
+.vertical-transform {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.horizontal-vertical-1 {
+    width: 100px;
+    height: 100px;
+    margin: 25px auto;
+}
+
+.horizontal-vertical-2-parent {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.horizontal-vertical-2-child {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.horizontal-vertical-3-parent {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.horizontal-vertical-3-child {
+    display: inline;
+}
+
+.horizontal-vertical-4-parent {
+    height: 100%;
+    position: relative;
+}
+
+.horizontal-vertical-4-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 50px;
+    margin: -25px 0 0 -150px;
+}
+
+.horizontal-vertical-5-parent {
+    height: 100%;
+    position: relative;
+}
+
+.horizontal-vertical-5-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }

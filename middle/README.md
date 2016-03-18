@@ -33,12 +33,12 @@
 
 ### 三. 垂直居中
 
-#### 1. 单行，父元素高度固定
+#### 1. 父元素高度固定，单行
 
 父元素 **高度固定** 时，子元素不管是内联元素还是块级元素都可以直接将父元素的 **line-height** 与 **height** 设置为同一值。
 
 ```
-.vertical-single-1 {
+.vertical-line-height {
 	height: 50px;
 	line-height: 50px;
 }
@@ -47,39 +47,39 @@
 父元素 **高度固定** 时，子元素不管是内联元素还是块级元素，还可以在父元素上用 **display** 和 **vertical-align** 结合的方法。特别的，这种方法同样适用于 **多行** 的情况。
 
 ```
-.vertical-single-2 {
+.vertical--vertical-align {
     display: table-cell;
     vertical-align: middle;
 }
 ```
 
-#### 2. 单行，父元素，子元素都高度固定
+#### 2. 父元素，子元素都高度固定
 
 父元素 **高度固定** 时，若子元素的高度也固定了，那么还可以用 **padding-top** 与 **padding-bottom** 或 **margin-top** 与 **margin-bottom** 来调，但这种仅仅是看上去居中了，算不准的话会有些偏差，想精确的话，还要结合设置子元素的 **line-height** 来使用。
 
 ```
-.vertical-single-3 {
+.vertical-padding-top-bottom {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.vertical-single-3 > div {
+.vertical-padding-top-bottom > div {
     height: 20px;
     line-height: 20px;
 }
 ```
 
-#### 3. 单行，父元素高度不固定，子元素高度固定
+#### 3. 父元素高度不固定，子元素高度固定
 
 父元素 **高度不固定** 时，若子元素的高度固定，那么可以用 **absolute** 加 **负margin-top** 或 **margin auto** 的方法。
 
 ```
-.vertical-single-4-parent {
+.vertical-parent-variable {
     height: 100%;
     position: relative;
 }
 
-.vertical-single-4 {
+.vertical-absolute-1 {
     position: absolute;
     height: 20px;
     top: 50%;
@@ -89,12 +89,12 @@
 还可以
 
 ```
-.vertical-single-5-parent {
+.vertical-parent-variable {
     height: 100%;
     position: relative;
 }
 
-.vertical-single-5 {
+.vertical-absolute-2 {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -103,15 +103,106 @@
 }
 ```
 
-#### 4. 单行，父元素，子元素高度都不固定
+#### 4. 父元素，子元素高度都不固定
 
+父元素 和 子元素 **高度不固定** 时，那么可以用 **absolute** 加 **translateY负值** 的方法。
 
-#### 5. 多行
+```
+.vertical-parent-variable {
+    height: 100%;
+    position: relative;
+}
 
+.vertical-transform {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+```
+但这种，由于用到了 CSS3 的技术，所以 IE8 及以下不支持，而且必须带上浏览器厂商的前缀，譬如， IE9 就要求这样写：**-ms-transform** 。
 
 ### 四. 水平垂直居中
 
+基本上是第二与第三部分的自由组合，下面列出一些常见的情况。
 
+#### 1. 父元素，子元素宽高都固定
+父，子元素的宽高固定时，可以根据父元素的高度，只使用 **margin** 方法（这种要精确计算，不喜欢这种）。
+
+```
+.horizontal-vertical-1 {
+    width: 100px;
+    height: 50px;
+    margin: 25px auto;
+}
+```
+还可以，在父元素上使用值为 **table-cell** 的 **display** ，子元素使用 **margin** 的方法，这种的好处是可以有 **多行** 子元素（正如 三. 里面 1. 中的第二个方法所讲），而且不需要精确计算，比较好用。
+
+```
+.horizontal-vertical-2-parent {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.horizontal-vertical-2-child {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+}
+```
+
+#### 2. 父元素宽高固定，子元素不固定
+
+父元素宽高固定，子元素宽高不固定时（子元素宽度不固定时主要表现为其是内联，否则会横向充满父元素，所以这里只考虑子元素为内联元素时的情况），可以为父元素使用值为 **table-cell** 的 **display** 以及 **text-align** 的方法。
+
+```
+.horizontal-vertical-3-parent {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.horizontal-vertical-3-child {
+    display: inline;
+}
+```
+
+#### 3. 父元素宽高不固定，子元素固定
+
+父元素宽高不固定，子元素固定时，可以使用 **absolute** 和 **margin负值** 的方法。
+
+```
+.horizontal-vertical-4-parent {
+    height: 100%;
+    position: relative;
+}
+
+.horizontal-vertical-4-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 50px;
+    margin: -25px 0 0 -150px;
+}
+```
+
+#### 4. 父元素，子元素宽高都不固定
+
+父元素，子元素宽高都不固定时，可以使用 **transform** 的方法。
+
+```
+.horizontal-vertical-5-parent {
+    height: 100%;
+    position: relative;
+}
+
+.horizontal-vertical-5-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+```
 ### 参见
 
 [CSS垂直水平完全居中手册](https://mp.weixin.qq.com/s?__biz=MzAwNDcyNjI3OA==&mid=402280389&idx=1&sn=7d932e91a5cd2f10f1555155427bc679&scene=1&srcid=03161SbB5bviWOvKxDyhv9Gk&key=710a5d99946419d91494af75c845b0b7e92f69168c5190871cd48a2dc2ee5231fce6c85bf70e77f3744da39278ac322e&ascene=0&uin=MjY3MjUzMTE0MQ%3D%3D&devicetype=iMac+MacBookPro11%2C2+OSX+OSX+10.10.5+build(14F1509)&version=11020201&pass_ticket=a6bfdENE9KstErkVJ4XJl2sq4BHnvr96bc0s43SjxpyWePqXBNRNKt24yuggWoOC)
