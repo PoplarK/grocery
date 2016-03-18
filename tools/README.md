@@ -28,4 +28,13 @@
 
 * [ImageOptim](https://imageoptim.com/) ImageOptim 是一个图片无损压缩工具，可以处理 **JPEG** / **PNG** / **GIF** 图片文件。无损压缩时，其先分析图片，找到最优压缩参数，并移除图片文件中包含的一些注释、颜色 Profile 等多余信息，移除后图像质量不变，体积更小载入更快。虽然它是一个无损压缩工具，但设置项中却还能勾选为有损压缩，并分别设置  JPEG 、 PNG 、 GIF 的压缩率。我本人用时，感觉 JPEG 的有损压缩效果非常突出。 
 
+* [Postman](http://www.getpostman.com/) Postman 是 chrome 的一个插件形式的 App ，能够帮助你更快的开发 API ，使调试 API 变得非常容易。
+
+* [Skitch(圈点)](https://evernote.com/intl/zh-cn/skitch/) 印象笔记开发的一个非常简单易用的图像工具。它能方便用户在电脑或手机上的图片上，描个圆圈，做个注释，画个箭头，标出精彩之处。
+
+* [SourceTree](https://www.sourcetreeapp.com/) 免费的 Git 客户端，谁用谁知道。
+
+* [MongoHub](http://www.macupdate.com/app/mac/33918/mongohub) 连接 MongoDB 的一个图形化的管理工具。
+
+
 ###To be continue....
