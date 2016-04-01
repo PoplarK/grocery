@@ -1,5 +1,5 @@
-##常用工具
-###MAC下的工具
+# 常用工具
+## MAC下的工具
 * [Homebrew](http://brew.sh/) 这个不多说了，用 Mac 就必须有它。（点击链接有安装说明）
 
 * [MacVim]() Mac 下用的 vim ，使用 vim 的同志，这款 vim 编辑器，还是先方便的。（怎么安装的，我记不清了，待更新...）
@@ -37,4 +37,4 @@
 * [MongoHub](http://www.macupdate.com/app/mac/33918/mongohub) 连接 MongoDB 的一个图形化的管理工具。
 
 
-###To be continue....
+## To be continue....

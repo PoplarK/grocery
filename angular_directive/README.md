@@ -1,9 +1,9 @@
-##Angular Directive
+# Angular Directive
 [![angular](https://angularjs.org/img/AngularJS-large.png)](https://angularjs.org/)
 
 本文目的是搞清楚Angular的指令
 
-### 一. 此处目录结构为：
+## 一. 此处目录结构为：
 > **source**
 > > arithmetic.js -- *被测试源文件*
 > 

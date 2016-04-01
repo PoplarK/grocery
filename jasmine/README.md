@@ -1,7 +1,7 @@
-##Jasmine
+# Jasmine
 [![jasmine](http://jasmine.github.io/images/jasmine_vertical.png)](http://jasmine.github.io/)
 
-### 一. 此处目录结构为：
+## 一. 此处目录结构为：
 > **source**
 > > arithmetic.js -- *被测试源文件*
 > 
@@ -15,9 +15,9 @@
 > > > arithmetic.test.js -- *单元测试文件*
 > > 
 
-### 二. jasmine的用法
+## 二. jasmine的用法
 
-#### 1. 需要安装的工具
+### 1. 需要安装的工具
 * 安装jasmine
 
 `npm install -g jasmine`
@@ -29,7 +29,7 @@
 > 
 > **jasmine**包含BDD风格的expect断言库，所以不需要引入其它的。
 
-#### 2. 具体用法
+### 2. 具体用法
 1. 用命令执行指定测试文件 ```jasmine filename```
 2. 利用配置文件 ```jasmine``` 此时，jasmine默认会找spec下的support目录，并读取support目录下的jasmine.json配置文件，譬如此处的配置文件内容为：
 
@@ -50,7 +50,7 @@
 > jasmine不能像mocha那样直接 `mocha directory` 来跑某个目录下的所有测试文件
 
 
-### 三. 此处示例代码
+## 三. 此处示例代码
 * 其中arithmetic.js被测的部分代码为：
 
 ```
@@ -132,4 +132,4 @@ describe('Array', function() {
 > 
 > 由于jasmine没有BDD风格的should形式的断言，所以像mocha中的[1,2,3].indexOf(5).should.equal(-1)这种代码不能用于jasmine里。
 
-###参见 [mocha](https://github.com/PoplarK/grocery/blob/master/mocha/README.md)
+## 参见 [mocha](https://github.com/PoplarK/grocery/blob/master/mocha/README.md)
