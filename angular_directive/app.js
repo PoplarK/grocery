@@ -17,6 +17,10 @@ app.controller("indexController", ["$scope", function($scope) {
         }
         $scope.isSideNavOpen = false;
     }
+
+    $scope.showInput = function(input) {
+        alert("你输入的是："+input);
+    }
 }]);
 
 // restrict
@@ -137,6 +141,23 @@ app.directive("bindStrategyEqual", function() {
         template: 'inner anchor <a href="{{ url }}" target="_blank">{{ text }}</a><br/>inner input <input type="text" ng-model="text">'
     };
 });
+
+app.directive("bindStrategyAnd", function() {
+    return {
+        restrict: "A",
+        scope: {
+            done: "&"
+        },
+        template: '<input type="text" ng-model="text"><md-button ng-click="done({input: text})">输入完毕</md-button>'
+    };
+});
+/*
+    注：
+        1.  绑定的是函数
+        2.  指令中的函数参数为object
+        3.  在外面绑定函数时传参，为object的key
+        4.  controller中对应函数的参数则为object的value
+*/
 
 /*
 app.directive("bindStrategyAt", function() {
