@@ -43,70 +43,15 @@
                     <md-list-item>
                         <a href="javascript:void(0);" ng-click="changePage('ng-select')">ng-select</a>
                     </md-list-item>
-                    <md-list-item>
-                        <a href="javascript:void(0);" ng-click="changePage('ng-include')">ng-include</a>
-                    </md-list-item>
                 </md-list>
             </md-sidenav>
 
             <md-content id="self-defined" ng-if="'self-defined'===page" flex layout="row" layout-padding>
                 <div flex>
-                    <div>Restrict参数：</div>
-                    <br/>
-                    <div>
-                        <restrict-e>
-                            <div>
-                                outer div
-                                <div>inner div</div>
-                            </div>
-                        </restrict-e>
-                        <div restrict-a>
-                            outer div
-                            <div> inner div </div>
-                        </div>
-                        <div class="restrict-c">
-                            outer div
-                            <div> inner div </div>
-                        </div>
-                        <!--directive:restrict-m-->
-                    </div>
-                    <hr/>
-                    <br/>
-                    <div>Replace参数：</div>
-                    <br/>
-                    <div>
-                        <replace-e>
-                            <div>
-                                outer div
-                                <div>inner div</div>
-                            </div>
-                        </replace-e>
-                        <div replace-a>
-                            outer div
-                            <div> inner div </div>
-                        </div>
-                        <div class="replace-c">
-                            outer div
-                            <div> inner div </div>
-                        </div>
-                        <!--directive:replace-m-->
-                    </div>
-                </div>
-                <div flex>
                     <div>Scope参数：</div>
                     <br/>
                     <div>
-                        <div ng-init="testScopeFalse='init false';testScopeTrue='init true';">布尔参数：</div>
-                        父作用域中初始化：
-                        <code>testScopeFalse = 'init false'; testScopeTrue = 'init true';</code>
-                        <div>
-                            scope = false: {{ testScopeFalse }}
-                            <div scope-false></div>
-                        </div>
-                        <div>
-                            scope = true: {{ testScopeTrue }}
-                            <div scope-true></div>
-                        </div>
+                        Scope参数主要是为了创建一个独立于父作用域的新作用域。
                     </div>
                     <br/>
                     <div>
@@ -146,37 +91,79 @@
 
             <md-content id="ng-select" ng-if="'ng-select'===page" flex layout="row" layout-padding ng-controller="selectController">
                 <div flex>
-                    <select ng-model="selectedItem" ng-options="item for item in items">
+                    <div>
+                        <span>
+                            Model = 
+                        </span>
+                        <code>{{stringArray}}</code>
+                    </div>
+                    <br/>
+                    <div>
+                        <span>Code: </span>
+                        <code>ng-options="item for item in stringArray"
+                        </code>
+                    </div>
+                    <br/>
+                    <select ng-model="selectedItem" ng-options="item for item in stringArray">
                         <option value="">Choose Item</option>
                     </select>
                     <div> Selected value: {{selectedItem}} </div>
                 </div>
                 <div flex>
-                    <select ng-model="selectedUser" ng-options="user.name for user in users">
+                    <div>
+                        <span>
+                            Model = 
+                        </span>
+                        <code>{{objectArray}}</code>
+                    </div>
+                    <br/>
+                    <div>
+                        <span>Code: </span>
+                        <code>ng-options="object.name for object in objectArray"
+                        </code>
+                    </div>
+                    <br/>
+                    <select ng-model="selectedUser" ng-options="object.name for object in objectArray">
                         <option value="">Choose User</option>
                     </select>
                     <div> Selected value: {{ selectedUser }} </div>
                 </div>
                 <div flex>
-                    <select ng-model="selectedUserName" ng-options="user.name as user.name for user in users">
+                    <div>
+                        <span>
+                            Model = 
+                        </span>
+                        <code>{{objectArray}}</code>
+                    </div>
+                    <br/>
+                    <div>
+                        <span>Code: </span>
+                        <code>ng-options="object.name as object.name for object in objectArray"
+                        </code>
+                    </div>
+                    <br/>
+                    <select ng-model="selectedUserName" ng-options="object.name as object.name for object in objectArray">
                         <option value="">Choose User's Name</option>
                     </select>
                     <div> Selected value: {{ selectedUserName }} </div>
                 </div>
                 <div flex>
-                    <select ng-model="selectedUserId" ng-options="user.id as user.name for user in users">
+                    <div>
+                        <span>
+                            Model = 
+                        </span>
+                        <code>{{objectArray}}</code>
+                    </div>
+                    <br/>
+                    <div>
+                        <span>Code: </span>
+                        <code>ng-options="object.id as object.name for object in objectArray"</code>
+                    </div>
+                    <br/>
+                    <select ng-model="selectedUserId" ng-options="object.id as object.name for object in objectArray">
                         <option value="">Choose User's Id</option>
                     </select>
                     <div> Selected value: {{ selectedUserId }} </div>
-                </div>
-            </md-content>
-
-            <md-content id="ng-include" ng-if="'ng-include'===page" flex layout="row" layout-padding>
-                <div ng-include="'include.html'">
-                    outer div
-                    <div>
-                        inner div
-                    </div>
                 </div>
             </md-content>
         </div>

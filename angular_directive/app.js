@@ -23,85 +23,11 @@ app.controller("indexController", ["$scope", function($scope) {
     }
 }]);
 
-// restrict
-app.directive("restrictE", function() {
-    return {
-        restrict: "E",
-        template: "<span>Restrict-E</span>"
-    };
-});
-
-app.directive("restrictA", function() {
-    return {
-        restrict: "A",
-        template: "<span>Restrict-A</span>"
-    };
-});
-
-app.directive("restrictC", function() {
-    return {
-        restrict: "C",
-        template: "<span>Restrict-C</span>"
-    };
-});
-
-app.directive("restrictM", function() {
-    return {
-        restrict: "M",
-        template: "<span>Restrict-M</span>"
-    };
-});
-
-// replace
-app.directive("replaceE", function() {
-    return {
-        restrict: "E",
-        template: "<span>Replace-E</span>",
-        replace: true
-    };
-});
-
-app.directive("replaceA", function() {
-    return {
-        restrict: "A",
-        template: "<span>Replace-A</span>",
-        replace: true
-    };
-});
-
-app.directive("replaceC", function() {
-    return {
-        restrict: "C",
-        template: "<span>Replace-C</span>",
-        replace: true
-    };
-});
-
-app.directive("replaceM", function() {
-    return {
-        restrict: "M",
-        template: "<span>Replace-M</span>",
-        replace: true
-    };
-});
-
 // boolean scope
-app.directive("scopeFalse", function() {
-    return {
-        restrict: "A",
-        scope: false, // 默认就是false，指令中的作用域对象与父作用域对象为同一个
-        template: "<div><input type='text' ng-model='testScopeFalse'/></div>",
-        link: function(scope, elem, attrs) {
-            console.log("scope false: ", scope);
-        }
-    }
-});
-
 app.directive("scopeTrue", function() {
     return {
         restrict: "A",
-        scope: true, // 指令从父作用域继承并创建一个新的作用域对象，与controller有类似。
-        template: "<div><input type='text' ng-model='testScopeTrue'/></div>",
+        scope: true, // 默认为false，当为true时，指令中的作用域继承父作用域，类似于子controller与父controller的关系。
         link: function(scope, elem, attrs) {
             console.log("scope true: ", scope);
         }
@@ -159,28 +85,11 @@ app.directive("bindStrategyAnd", function() {
         4.  controller中对应函数的参数则为object的value
 */
 
-/*
-app.directive("bindStrategyAt", function() {
-    return {
-        restrict: "A",
-        replace: true,
-        scope: {  // 作用
-            url: "@myUrl",
-            text: "@myLinkText"
-        },
-        template: '<a href="{{ url }}">{{ text }}</a>',
-        link: function(scope, ele, attrs) {
-            console.log(scope, ele, attrs);
-        }
-    };
-});
-*/
-
 // ng-select
 app.controller('selectController', function($scope) {
-    $scope.items = ["AAA", "BBB", "CCC", "DDD", "EEE"];
+    $scope.stringArray = ["AAA", "BBB", "CCC", "DDD", "EEE"];
 
-    $scope.users = [
+    $scope.objectArray = [
         {id: 111, name: "AAA"},
         {id: 222, name: "BBB"},
         {id: 333, name: "CCC"},
