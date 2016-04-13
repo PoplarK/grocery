@@ -28,7 +28,7 @@
         <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
         <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
     </head>
-    <body ng-app="DAPP" layout="column" ng-init="isSideNavOpen=false;page='self-defined';" ng-controller="indexController">
+    <body ng-app="DAPP" layout="column" ng-init="isSideNavOpen=false;page='scope';" ng-controller="indexController">
         <md-toolbar layout="row" class="main-nav">
             <nav>
                 <h3 ng-click="isSideNavOpen=!isSideNavOpen">Angular Directive (Click Me)</h3>
@@ -38,17 +38,20 @@
             <md-sidenav class="md-sidenav-left" md-is-open="isSideNavOpen">
                 <md-list>
                     <md-list-item>
-                        <a href="javascript:void(0);" ng-click="changePage('self-defined')">slef-defined</a>
+                        <a href="javascript:void(0);" ng-click="changePage('scope')">scope</a>
                     </md-list-item>
                     <md-list-item>
-                        <a href="javascript:void(0);" ng-click="changePage('ng-select')">ng-select</a>
+                        <a href="javascript:void(0);" ng-click="changePage('ng-options')">ng-options</a>
+                    </md-list-item>
+                    <md-list-item>
+                        <a href="javascript:void(0);" ng-click="changePage('transclude')">transclude</a>
                     </md-list-item>
                 </md-list>
             </md-sidenav>
 
-            <md-content id="self-defined" ng-if="'self-defined'===page" flex layout="row" layout-padding>
+            <md-content id="scope" ng-if="'scope'===page" flex layout="row" layout-padding>
                 <div flex>
-                    <div>Scope参数：</div>
+                    <h1>Scope参数</h1>
                     <br/>
                     <div>
                         Scope参数主要是为了创建一个独立于父作用域的新作用域。
@@ -89,81 +92,104 @@
                 </div>
             </md-content>
 
-            <md-content id="ng-select" ng-if="'ng-select'===page" flex layout="row" layout-padding ng-controller="selectController">
-                <div flex>
-                    <div>
-                        <span>
-                            Model = 
-                        </span>
-                        <code>{{stringArray}}</code>
+            <md-content id="ng-options" ng-if="'ng-options'===page" flex layout="column" layout-padding ng-controller="selectController">
+                <h1>Ng-options</h1>
+                <div flex layout="row">
+                    <div flex>
+                        <div>
+                            <span>
+                                Model = 
+                            </span>
+                            <code>{{stringArray}}</code>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>Code: </span>
+                            <code>ng-options="item for item in stringArray"
+                            </code>
+                        </div>
+                        <br/>
+                        <select ng-model="selectedItem" ng-options="item for item in stringArray">
+                            <option value="">Choose Item</option>
+                        </select>
+                        <div> Selected value: {{selectedItem}} </div>
                     </div>
-                    <br/>
-                    <div>
-                        <span>Code: </span>
-                        <code>ng-options="item for item in stringArray"
-                        </code>
+                    <div flex>
+                        <div>
+                            <span>
+                                Model = 
+                            </span>
+                            <code>{{objectArray}}</code>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>Code: </span>
+                            <code>ng-options="object.name for object in objectArray"
+                            </code>
+                        </div>
+                        <br/>
+                        <select ng-model="selectedUser" ng-options="object.name for object in objectArray">
+                            <option value="">Choose User</option>
+                        </select>
+                        <div> Selected value: {{ selectedUser }} </div>
                     </div>
-                    <br/>
-                    <select ng-model="selectedItem" ng-options="item for item in stringArray">
-                        <option value="">Choose Item</option>
-                    </select>
-                    <div> Selected value: {{selectedItem}} </div>
+                    <div flex>
+                        <div>
+                            <span>
+                                Model = 
+                            </span>
+                            <code>{{objectArray}}</code>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>Code: </span>
+                            <code>ng-options="object.name as object.name for object in objectArray"
+                            </code>
+                        </div>
+                        <br/>
+                        <select ng-model="selectedUserName" ng-options="object.name as object.name for object in objectArray">
+                            <option value="">Choose User's Name</option>
+                        </select>
+                        <div> Selected value: {{ selectedUserName }} </div>
+                    </div>
+                    <div flex>
+                        <div>
+                            <span>
+                                Model = 
+                            </span>
+                            <code>{{objectArray}}</code>
+                        </div>
+                        <br/>
+                        <div>
+                            <span>Code: </span>
+                            <code>ng-options="object.id as object.name for object in objectArray"</code>
+                        </div>
+                        <br/>
+                        <select ng-model="selectedUserId" ng-options="object.id as object.name for object in objectArray">
+                            <option value="">Choose User's Id</option>
+                        </select>
+                        <div> Selected value: {{ selectedUserId }} </div>
+                    </div>
                 </div>
+            </md-content>
+
+            <md-content id="transclude" ng-if="'transclude'===page" flex layout="row" layout-padding>
                 <div flex>
+                    <h1>Transclude参数</h1>
                     <div>
-                        <span>
-                            Model = 
-                        </span>
-                        <code>{{objectArray}}</code>
+                        <h2>下面是未使用 transclude-directive的原标签：(其前后什么也没有)</h2>
+                        <div>
+                            <h3 style="background-color:red;">我是原标签内部的子标签div。</h3>
+                        </div>
                     </div>
                     <br/>
-                    <div>
-                        <span>Code: </span>
-                        <code>ng-options="object.name for object in objectArray"
-                        </code>
-                    </div>
-                    <br/>
-                    <select ng-model="selectedUser" ng-options="object.name for object in objectArray">
-                        <option value="">Choose User</option>
-                    </select>
-                    <div> Selected value: {{ selectedUser }} </div>
-                </div>
-                <div flex>
-                    <div>
-                        <span>
-                            Model = 
-                        </span>
-                        <code>{{objectArray}}</code>
-                    </div>
                     <br/>
                     <div>
-                        <span>Code: </span>
-                        <code>ng-options="object.name as object.name for object in objectArray"
-                        </code>
+                        <h2>下面是使用了 transclude-directive的标签：(其被插入到了指令模板中的 ng-transclude 位置处，故被指令模板中其他内容包围了)</h2>
+                        <div transclude-directive>
+                            <h3 style="background-color:red;">我是原标签内部的子标签div。</h3>
+                        </div>
                     </div>
-                    <br/>
-                    <select ng-model="selectedUserName" ng-options="object.name as object.name for object in objectArray">
-                        <option value="">Choose User's Name</option>
-                    </select>
-                    <div> Selected value: {{ selectedUserName }} </div>
-                </div>
-                <div flex>
-                    <div>
-                        <span>
-                            Model = 
-                        </span>
-                        <code>{{objectArray}}</code>
-                    </div>
-                    <br/>
-                    <div>
-                        <span>Code: </span>
-                        <code>ng-options="object.id as object.name for object in objectArray"</code>
-                    </div>
-                    <br/>
-                    <select ng-model="selectedUserId" ng-options="object.id as object.name for object in objectArray">
-                        <option value="">Choose User's Id</option>
-                    </select>
-                    <div> Selected value: {{ selectedUserId }} </div>
                 </div>
             </md-content>
         </div>

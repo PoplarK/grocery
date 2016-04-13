@@ -3,17 +3,17 @@ var app = angular.module("DAPP", ["ngMaterial"]);
 app.controller("indexController", ["$scope", function($scope) {
     $scope.changePage = function(page) {
         switch(page) {
-            case "self-defined":
-                $scope.page = "self-defined";
+            case "scope":
+                $scope.page = "scope";
                 break;
-            case "ng-select":
-                $scope.page = "ng-select";
+            case "ng-options":
+                $scope.page = "ng-options";
                 break;
-            case "ng-include":
-                $scope.page = "ng-include";
+            case "transclude":
+                $scope.page = "transclude";
                 break;
             default:
-                $scope.page = "self-defined";
+                $scope.page = "scope";
         }
         $scope.isSideNavOpen = false;
     }
@@ -85,7 +85,16 @@ app.directive("bindStrategyAnd", function() {
         4.  controller中对应函数的参数则为object的value
 */
 
-// ng-select
+// transclude
+app.directive("transcludeDirective", function() {
+    return {
+        restrict: "A",
+        transclude: true,
+        template: '<div style="background-color:green;"><div>我是transclude-directive指令模板中的div，我后面是一个有 ng-transclude 的div。</div><div ng-transclude></div><div>我也是transclude-directive指令模板中的div，我前面是一个有 ng-transclude 的div。</div></div>'
+    }
+});
+
+// ng-options
 app.controller('selectController', function($scope) {
     $scope.stringArray = ["AAA", "BBB", "CCC", "DDD", "EEE"];
 
