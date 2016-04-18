@@ -36,3 +36,5 @@ return 里返回的对象包含的参数是这样的：
 
 [Angular学习心得之directive——require选项的细节](http://my.oschina.net/u/2342955/blog/411508)
 
+[Angular Directive scope 的三种使用方式](http://www.tuicool.com/articles/aAveEj)
+
