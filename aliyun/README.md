@@ -1,5 +1,7 @@
 # 阿里云 ECS 云服务器初步配置
 
+[![阿里云](https://img.alicdn.com/tps/TB11M4hLFXXXXXTXVXXXXXXXXXX-190-64.png)](https://www.aliyun.com/)
+
 ## 基本说明
 购买的 ECS 云服务器使用的系统为 CentOS 7。
 
