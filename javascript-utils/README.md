@@ -1,5 +1,7 @@
 # Javascript 常用的代码段
 
+[![Javascript](https://www.codementor.io/assets/page_img/learn-javascript.png)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 ## 浏览器判断
 
 ### 判断是否为手机浏览器
