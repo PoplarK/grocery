@@ -36,5 +36,14 @@ visudo
 
 * 然后重启 sshd 服务即可
 
+## 安装 ftp server
+主要是为了方便向服务器上传文件，这里使用非常好用的 vsftpd。
+
+### 1. 安装 vsftpd
+
+```
+sudo yum install vsftpd
+```
+
 
 ## To be continue....
