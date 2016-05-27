@@ -28,4 +28,14 @@ var isIE = function() {
 }
 ```
 > 扩展 - html 中判断 IE 版本
-> ```<!--[if lt IE 9]> do something <![endif]-->```
+>
+```
+<!--[if IE]> <h1>您正在使用IE浏览器</h1> <![endif]-->
+<!--[if IE 5]> <h1>版本 5</h1> <![endif]-->
+<!--[if IE 5.0]> <h1>版本 5.0</h1> <![endif]-->
+<!--[if IE 5.5]> <h1>版本 5.5</h1> <![endif]-->
+<!--[if IE 6]> <h1>版本 6</h1> <![endif]-->
+<!--[if IE 7]> <h1>版本 7</h1> <![endif]-->
+<!--[if IE 8]> <h1>版本 8</h1> <![endif]-->
+<!--[if lt IE 9]> <h1>版本 9 以下</h1> <![endif]-->
+```
