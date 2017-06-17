@@ -63,9 +63,3 @@ export class TS {
 ```
 import { TS } from 'ts';
 ```
-
-
-## Import ts file in commonJS file
-
-to be continue...
-
