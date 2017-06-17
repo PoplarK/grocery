@@ -1,5 +1,8 @@
 # Angular 2.x/4.x
-[![angular](https://angular.cn/resources/images/logos/angular/angular.svg)](https://angular.cn/)
+[![Angular中文网][Angular Icon]][Angular WebSite]
+
+[Angular Icon]: https://avatars2.githubusercontent.com/u/139426
+[Angular WebSite]: https://angular.cn/
 
 ---
 （每个部分仅记录我认为的重点部分，使整个文章尽可能的短，所以可能造成没有上下文看不懂的情况）
