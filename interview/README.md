@@ -10,18 +10,14 @@
 
 ##### 特点：
 ```
-项目存在 **两个** 长期分支：master & develop
+项目存在 两个 长期分支：master & develop
 
-项目存在 **三种** 短期分支（完成后即删掉）：feature & hotfix & release
+项目存在 三种 短期分支（完成后即删掉）：feature & hotfix & release
 
 一张图解释所有:
 ```
 
 ![git flow](http://nvie.com/img/git-model@2x.png)
-
-##### 参考：
-1. [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-2. [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
 ##### 评价：
 ```
@@ -31,6 +27,11 @@ Git Flow 优点是清晰可控，缺点是相对复杂，而且 master 是创建
 更大问题在于，这个模式基于"版本发布"，目标是一段时间产生一个新版本。但是，很多网站项目是"持续发布"，代码一有变动，
 就部署一次。这时，master 分支和 develop 分支和差别不大，没必要维护两个长期分支。（个人觉得比较适合敏捷开发）
 ```
+
+##### 参考：
+1. [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+2. [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
+3. [从 SVN 迁移至 Gitlab + Gitflow 总结](http://blog.csdn.net/uxyheaven/article/details/50373076)
 
 #### 2. Github Flow
 
@@ -55,10 +56,36 @@ Git Flow 优点是清晰可控，缺点是相对复杂，而且 master 是创建
 ```
 Github flow 的最大优点就是简单，对于"持续发布"的产品，可以说是最合适的流程。
 可是，有些时候代码合并进入 master 分支，并不代表它就能立刻发布，这种情况，只有 master 一个主分支就不够用了。
-通常，你不得不在 master 分支以外，另外新建一个 production 分支跟踪线上版本。
 ```
 
 #### 3. Gitlab Flow
+
+Gitlab Flow 可以解决 Github Flow 中部署、环境、发布和 issue 的管理等问题，它是 Git Flow 与 Github Flow 的综合。
 ##### 特点：
 ```
+上游优先 —— 项目只存在一个主分支 master ，它是所有其他分支的"上游"。只有上游分支采纳的代码变化，才能应用到其他分支。
 ```
+
+##### 两种情况：
+```
+1. 对于"持续发布"的项目，建议在 master 分支（主开发分支）外，再建立不同的环境分支，如"预发环境"分支 pre-production ，
+"生产环境"分支 production。
+
+开发分支是预发分支的"上游"，预发分支又是生产分支的"上游"。代码的变化，必须由"上游"向"下游"发展。比如，生产环境出现了 bug ，
+这时就要新建一个功能分支，先把它合并到 master ，确认没有问题，再 cherry-pick 到 pre-production ，这一步也没有问题，
+才进入 production。
+
+只有紧急情况，才允许跳过上游，直接合并到下游分支。
+```
+![持续发布](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015122306.png)
+
+```
+2. 对于"版本发布"的项目，建议对每一个稳定版本，都要从 master 分支拉出一个分支，比如 2-3-stable、2-4-stable 等等。
+
+以后，只有修补 bug ，才允许将代码合并到这些分支，并且此时要更新小版本号。
+```
+![版本发布](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015122307.png)
+
+##### 参考：
+1. [Git 工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
+2. [GitLab Flow](http://www.15yan.com/topic/yi-dong-kai-fa-na-dian-shi/6yueHxcgD9Z/)
