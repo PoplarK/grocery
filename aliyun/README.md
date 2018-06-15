@@ -48,4 +48,29 @@ sudo yum install vsftpd
 ```
 
 
+## openresty 环境搭建
+### 1. install openresty
+
+```
+yum install yum-utils
+
+yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+
+yum install openresty
+```
+
+### 2. install luarocks
+
+从 [luarocks](https://github.com/luarocks/luarocks/wiki/Download) 下载页面找到 luarocks 最新的版本，并下载下来解压
+```
+./configure --with-lua-include=/usr/local/openresty/luajit/include/luajit-2.1
+
+make build
+
+make install
+```
+`注意：--with-lua-include 后面的路径是存放 lua.h 的目录，这里使用了上步 openresty 里的 luajit 中的 lua.h （虽然 ali 的 CentOS 7.4 里安装了 lua ，但 configure 时，并没有自动检测到 lua.h 的所在目录）`
+
+### 3. 嗯，似乎没了，写 lua 代码，让 openresty 跑起来吧
+
 ## To be continue....
